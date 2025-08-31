@@ -1,6 +1,15 @@
 import Image from "next/image";
 
-const apps = [
+type AppItem = {
+  id: string;
+  name: string;
+  tagline: string;
+  icon: string;
+  iosUrl: string;
+  androidUrl: string;
+};
+
+const apps: AppItem[] = [
   {
     id: "motor-fuel-reminder",
     name: "MotoCare",
@@ -33,14 +42,15 @@ export function Portfolio() {
       <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-8">Our Apps</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {apps.map((app) => (
-          <Card key={app.id} {...app} />
+          <Card key={app.id} app={app} />
         ))}
       </div>
     </section>
   );
 }
 
-function Card({ name, tagline, icon, iosUrl, androidUrl }: any) {
+function Card({ app }: { app: AppItem }) {
+  const { name, tagline, icon, iosUrl, androidUrl } = app;
   return (
     <a
       href={iosUrl || androidUrl || "#"}
