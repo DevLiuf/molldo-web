@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "molldo — 생활을 더 편리하게, 취미를 더 즐겁게",
   description: "molldo는 라이프스타일에 딱 맞는 앱을 만드는 제작소입니다.",
   metadataBase: new URL("https://molldo.example"),
+  verification: {
+    google: "niezDJo5PYRlP93L5OQ-0ZqnVrK3-TXM1_ZM6GCYve0",
+  },
   openGraph: {
     title: "molldo",
     description:

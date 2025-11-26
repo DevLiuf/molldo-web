@@ -7,6 +7,7 @@ type AppItem = {
   icon: string;
   iosUrl: string;
   androidUrl: string;
+  privacyPolicyUrl?: string;
 };
 
 const apps: AppItem[] = [
@@ -17,6 +18,7 @@ const apps: AppItem[] = [
     icon: "/globe.svg",
     iosUrl: "",
     androidUrl: "",
+    privacyPolicyUrl: "https://elfin-asterisk-500.notion.site/MotoCare-2580c5caa00380c7b356e5e1c328007d",
   },
   {
     id: "random-game-penalty",
@@ -50,12 +52,9 @@ export function Portfolio() {
 }
 
 function Card({ app }: { app: AppItem }) {
-  const { name, tagline, icon, iosUrl, androidUrl } = app;
+  const { name, tagline, icon, iosUrl, androidUrl, privacyPolicyUrl } = app;
   return (
-    <a
-      href={iosUrl || androidUrl || "#"}
-      className="group rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:bg-white/10 transition will-change-transform"
-    >
+    <div className="rounded-xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 rounded-lg bg-white/10 grid place-items-center border border-white/10">
           <Image src={icon} alt="app icon" width={24} height={24} />
@@ -65,12 +64,25 @@ function Card({ app }: { app: AppItem }) {
           <p className="text-white/70 text-sm">{tagline}</p>
         </div>
       </div>
-      <div className="mt-4">
-        <span className="inline-block px-3 py-2 text-sm rounded-md border border-white/15 text-white/90 group-hover:bg-white/10">
+      <div className="mt-4 flex items-center gap-3">
+        <a
+          href={iosUrl || androidUrl || "#"}
+          className="inline-block px-3 py-2 text-sm rounded-md border border-white/15 text-white/90 hover:bg-white/10 transition"
+        >
           다운로드
-        </span>
+        </a>
+        {privacyPolicyUrl && (
+          <a
+            href={privacyPolicyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-3 py-2 text-sm rounded-md border border-white/15 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
+          >
+            개인정보 처리방침
+          </a>
+        )}
       </div>
-    </a>
+    </div>
   );
 }
 
