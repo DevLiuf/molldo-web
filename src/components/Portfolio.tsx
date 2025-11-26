@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type AppItem = {
   id: string;
@@ -18,7 +19,7 @@ const apps: AppItem[] = [
     icon: "/globe.svg",
     iosUrl: "",
     androidUrl: "",
-    privacyPolicyUrl: "https://elfin-asterisk-500.notion.site/MotoCare-2580c5caa00380c7b356e5e1c328007d",
+    privacyPolicyUrl: "/motocare/privacy",
   },
   {
     id: "random-game-penalty",
@@ -72,14 +73,12 @@ function Card({ app }: { app: AppItem }) {
           다운로드
         </a>
         {privacyPolicyUrl && (
-          <a
+          <Link
             href={privacyPolicyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-block px-3 py-2 text-sm rounded-md border border-white/15 text-white/70 hover:bg-white/10 hover:text-white/90 transition"
           >
             개인정보 처리방침
-          </a>
+          </Link>
         )}
       </div>
     </div>
