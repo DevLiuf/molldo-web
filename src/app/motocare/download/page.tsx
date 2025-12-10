@@ -22,7 +22,7 @@ export default function MotoCareDownloadPage() {
         <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tight">MotoCare</h1>
           <p className="text-white/70 text-lg">
-            오토바이 정비 관리의 시작
+            오토바이 관리의 시작
           </p>
         </div>
 
