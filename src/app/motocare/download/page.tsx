@@ -65,15 +65,6 @@ export default function MotoCareDownloadPage() {
           </Link>
         </div>
 
-        {/* Back to home */}
-        <div className="pt-4">
-          <Link
-            href="/"
-            className="text-white/50 hover:text-white/80 text-sm transition-colors"
-          >
-            ← molldo 홈으로 돌아가기
-          </Link>
-        </div>
       </div>
     </main>
   );
